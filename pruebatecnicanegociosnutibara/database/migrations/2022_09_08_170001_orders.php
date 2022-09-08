@@ -14,6 +14,17 @@ return new class extends Migration
     public function up()
     {
         //
+        Schema::create('orders', function (Blueprint $table) {
+            $table->bigIncrements('order_id');
+            $table->bigInteger('customer_id')->nullable(false)->change();
+            $table->date('order_date')->nullable(false)->change();
+            $table->decimal('order_total', 15,2)->nullable(false)->change();
+            $table->date('order_date_delivery')->nullable(false)->change();
+            $table->char('order_status', 10)->nullable(false)->change();
+            $table->timestamps();
+            $table->foreign('customer_id')->references('customer_id')->on('customers')->onDelete("cascade");
+        
+        });
     }
 
     /**
