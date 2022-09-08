@@ -17,8 +17,8 @@ return new class extends Migration
         Schema::create('orderdetails', function (Blueprint $table) {
             $table->engine="InnoDB";
             $table->bigIncrements('detail_id');
-            $table->Integer('order_id')->unsigned();
-            $table->Integer('product_id')->unsigned();
+            $table->bigInteger('order_id')->unsigned();
+            $table->bigInteger('product_id')->unsigned();
             $table->timestamps();
             $table->foreign('order_id')->references('order_id')->on('orders')->onDelete("cascade");
             $table->foreign('product_id')->references('product_id')->on('products')->onDelete("cascade");
