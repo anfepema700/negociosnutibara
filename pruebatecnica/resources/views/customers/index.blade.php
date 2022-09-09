@@ -4,16 +4,29 @@
 <br>
 <!--Form create city-->
 
-<h3>Insert city</h3>
-<form class="row g-3" action="{{url('/cities')}}" method="post" enctype="multipart/form-data">
+<h3>Insert Customers</h3>
+<form class="row g-3" action="{{url('/customers')}}" method="post" enctype="multipart/form-data">
 @csrf  
- <div class="col-auto">
-    
- <input type="text" class="form-control" autofocus  id="cityname" placeholder="City Name" name="city_name" required>
-  </div>
-  <div class="col-auto">
-    <button type="submit" class="btn btn-primary mb-3">Save</button>
-  </div>
+ <div class="col-6">
+    <br>
+ <input type="text" class="form-control" autofocus  id="idnumber" placeholder="Id Number" name="customer_id_number" required>
+ <br>
+ <input type="text" class="form-control"  id="name" placeholder="Name" name="customer_name" required>
+ <br>
+ <input type="date" class="form-control"  id="birthday" placeholder="Birthday" name="customer_birth_date" required> 
+ <br>
+ <input type="text" class="form-control"  id="address" placeholder="Address" name="customer_address" required>
+ <br>
+ <input type="phone" class="form-control" id="phonenumber" placeholder="Phone number" name="customer_phone" required>
+ <br>
+<select class="form-select form-select-sm" aria-label=".form-select-sm example" name="city_id" required>
+@foreach($cities as $city)
+ <option value="{{$city->id}}">{{$city->city_name}}</option>
+ @endforeach
+</select>
+ <br>
+ <button type="submit" class="btn btn-primary mb-3">Save</button>
+</div>
 </form>
 
 <br>
@@ -57,7 +70,7 @@
     </tbody>
 </table>
 </div>
-</div>
+
 </div>
 <script>
       $('#tblcities').DataTable({

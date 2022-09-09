@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\customers;
 use App\Models\cities;
 use Illuminate\Http\Request;
 
-class CitiesController extends Controller
+class CustomersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,9 @@ class CitiesController extends Controller
      */
     public function index()
     {
-       
-        return view('cities/index',$datos);
+        $datos['cities']=Cities::all();
+        return view('customers/index',$datos);
+//        return view('customers.index');
     }
 
     /**
@@ -25,7 +27,8 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        
+        $cities = Cities::all();
+        return view('customers.index', compact('cities'));
     }
 
     /**
@@ -36,19 +39,19 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-        $datacities  = request()->except('_token');
-        Cities::insert($datacities);
-        //return response()->json($datacities);
-        return redirect('cities');
+        $datacustomers  = request()->except('_token');
+        Customers::insert($datacustomers);
+        //return response()->json($datacustomers);
+        return redirect('customers');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\cities  $cities
+     * @param  \App\Models\customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function show(cities $cities)
+    public function show(customers $customers)
     {
         //
     }
@@ -56,42 +59,34 @@ class CitiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\cities  $cities
+     * @param  \App\Models\customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(customers $customers)
     {
-        $city= Cities::findOrFail($id);
-        return view('cities.edit', compact('city'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\cities  $cities
+     * @param  \App\Models\customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, customers $customers)
     {
-        $datacities  = request()->except(['_token','_method']);    
-        Cities::where('id','=',$id)->update($datacities);
-        
-        /*$city = Cities::findOrFail($id);
-        return view('cities.edit',compact('city'));
-        */
-        return redirect('cities');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\cities  $cities
+     * @param  \App\Models\customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(customers $customers)
     {
-        Cities::destroy($id);
-        return redirect('cities');
+        //
     }
 }
