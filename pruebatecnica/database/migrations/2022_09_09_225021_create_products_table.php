@@ -21,7 +21,6 @@ return new class extends Migration
             $table->char('product_status',10);
             $table->timestamps();
         });
-
     }
 
     /**
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('products');
     }
 };
