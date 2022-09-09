@@ -1,3 +1,4 @@
+<div class="container">
 @include('plantilla')
 <br>
 <br>
@@ -8,7 +9,7 @@
 @csrf  
  <div class="col-auto">
     
- <input type="text" class="form-control"  id="cityname" placeholder="City Name" name="city_name">
+ <input type="text" class="form-control" autofocus  id="cityname" placeholder="City Name" name="city_name">
   </div>
   <div class="col-auto">
     <button type="submit" class="btn btn-primary mb-3">Save</button>
@@ -36,22 +37,27 @@
             <td>{{$city->id}}</td>
             <td>{{$city->city_name}}</td>
             <td>
-                <a href="{{url('/cities/'.$city->city_id_id.'/edit')}}">
-Editar
-                </a>                                
-                
-            | 
-                <form action="{{ url('/cities/'.$city->city_id_id)}}" method="post">
-                @csrf 
-                {{method_field('DELETE')}}
+                <a href="{{url('/cities/'.$city->id.'/edit')}}">
+                <i class="fa-solid fa-pen-to-square text-primary"></i>
+                </a> 
+                <form method="post" action="{{url('/cities/'.$city->id)}}">
+                <a href="{{url('/cities/'.$city->id)}}">
+                {{csrf_field()}} 
+                {{ method_field('DELETE')}}
+                   <button onclick="return confirm('Are you sure');"><i class="fa-solid fa-trash text-danger"></i></button>
+                </a>
+                </form>
+                <!--
                 <input type="submit" onclick="return confirm('¿Are you sure?')" value="Delete" class="btn btn-danger">
-                </form>    
+                -->    
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
 </div>
+</div>
+
 </div>
 <script>
       $('#tblcities').DataTable({

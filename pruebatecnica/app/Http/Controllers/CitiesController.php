@@ -59,9 +59,10 @@ class CitiesController extends Controller
      * @param  \App\Models\cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function edit(cities $cities)
+    public function edit($id)
     {
-        //
+        $city= Cities::findOrFail($id);
+        return view('cities.edit', compact('city'));
     }
 
     /**
@@ -71,9 +72,15 @@ class CitiesController extends Controller
      * @param  \App\Models\cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cities $cities)
+    public function update(Request $request, $id)
     {
-        //
+        $datacities  = request()->except(['_token','_method']);    
+        Cities::where('id','=',$id)->update($datacities);
+        
+        /*$city = Cities::findOrFail($id);
+        return view('cities.edit',compact('city'));
+        */
+        return redirect('cities');
     }
 
     /**
@@ -82,8 +89,9 @@ class CitiesController extends Controller
      * @param  \App\Models\cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cities $cities)
+    public function destroy($id)
     {
-        //
+        Cities::destroy($id);
+        return redirect('cities');
     }
 }
