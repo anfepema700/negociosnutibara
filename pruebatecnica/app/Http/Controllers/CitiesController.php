@@ -14,7 +14,8 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        return view('cities.index');
+        $datos['cities']=Cities::all();
+        return view('cities/index',$datos);
     }
 
     /**
@@ -24,7 +25,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +36,10 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datacities  = request()->except('_token');
+        Cities::insert($datacities);
+        //return response()->json($datacities);
+        return redirect('cities');
     }
 
     /**
