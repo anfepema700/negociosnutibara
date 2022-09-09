@@ -10,9 +10,9 @@
 </head>
   <body>
 <center>  
-    <nav class="navbar navbar-expand-lg bg-light background-color: #e3f2fd;">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Menú</a>
+    <nav class="navbar navbar-expand-lg bg-info background-color: #e3f2fd;">
+    <div class="container-fluid text-light">
+        <a class="navbar-brand" href="../">Menú</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,9 +24,9 @@
                 Customers
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Listado</a></li>
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Guardar</a></li>
+                <li><a class="dropdown-item" href="customers">Listado</a></li>
+                <li><a class="dropdown-item" href="customers">Editar</a></li>
+                <li><a class="dropdown-item" href="customers/create">Guardar</a></li>
             </ul>
             </li>
 
@@ -35,9 +35,9 @@
                 Orders
             </a>
             <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Listado</a></li>
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Guardar</a></li>
+            <li><a class="dropdown-item" href="orders">Listado</a></li>
+                <li><a class="dropdown-item" href="orders">Editar</a></li>
+                <li><a class="dropdown-item" href="orders/create">Guardar</a></li>
             </ul>
             </li>
         
@@ -57,9 +57,9 @@
                 Products
             </a>
             <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="products/index">Listado</a></li>
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Guardar</a></li>
+            <li><a class="dropdown-item" href="products">Listado</a></li>
+                <li><a class="dropdown-item" href="products">Editar</a></li>
+                <li><a class="dropdown-item" href="products/create">Guardar</a></li>
             </ul>
             </li>
         </ul>
@@ -67,6 +67,7 @@
     </div>
     </nav>
 </center>
+
 <script src="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"></script>    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

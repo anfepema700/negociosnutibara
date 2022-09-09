@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Customers;
-use App\Models\Cities;
+use App\Models\cities;
 use Illuminate\Http\Request;
 
-class CustomersController extends Controller
+class CitiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        
-        $datos['customers']=Customers::all();
-        return view('customers/index',$datos);
+        //
     }
 
     /**
@@ -27,8 +24,7 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        $city = Cities::all();
-        return view('customers/create', compact('city'));
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class CustomersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Customers  $customers
+     * @param  \App\Models\cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function show(Customers $customers)
+    public function show(cities $cities)
     {
         //
     }
@@ -56,10 +52,10 @@ class CustomersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Customers  $customers
+     * @param  \App\Models\cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customers $customers)
+    public function edit(cities $cities)
     {
         //
     }
@@ -68,10 +64,10 @@ class CustomersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customers  $customers
+     * @param  \App\Models\cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customers $customers)
+    public function update(Request $request, cities $cities)
     {
         //
     }
@@ -79,10 +75,10 @@ class CustomersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Customers  $customers
+     * @param  \App\Models\cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customers $customers)
+    public function destroy(cities $cities)
     {
         //
     }
