@@ -33,7 +33,7 @@
     <tbody>
         @foreach($cities as $city)
         <tr>
-            <td>{{$city->city_id_id}}</td>
+            <td>{{$city->id}}</td>
             <td>{{$city->city_name}}</td>
             <td>
                 <a href="{{url('/cities/'.$city->city_id_id.'/edit')}}">
