@@ -32,8 +32,9 @@
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="products">Products</a>
                 </li>
-                
-
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="products">OrderDetails</a>
+                </li>
               </ul>
             </div>
           </div>

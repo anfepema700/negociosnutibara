@@ -23,8 +23,9 @@ return new class extends Migration
             $table->char('customer_phone',10);
             $table->bigInteger('city_id')->unsigned();            
             $table->timestamps();
-            $table->foreign('city_id')->references('city_id_id')->on('cities')->onDelete("cascade");
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete("cascade");
         });
+
     }
 
     /**
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        //
     }
 };

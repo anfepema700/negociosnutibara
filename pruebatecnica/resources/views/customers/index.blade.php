@@ -64,7 +64,6 @@
             <a href="{{url('/customers/'.$customer->id.'/edit')}}">
                 <i class="fa-solid fa-pen-to-square text-primary"></i>
                 </a> 
-                
                 <form method="post" action="{{url('/customers/'.$customer->id)}}">
                 {{csrf_field()}} 
                 {{ method_field('DELETE')}}

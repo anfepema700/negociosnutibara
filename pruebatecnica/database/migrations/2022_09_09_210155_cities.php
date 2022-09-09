@@ -18,7 +18,6 @@ return new class extends Migration
                 $table->char('city_name',50);
                 $table->timestamps();
             });
-    
     }
 
     /**
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        //
     }
 };
