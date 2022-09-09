@@ -16,7 +16,8 @@ class CustomersController extends Controller
     public function index()
     {
         $datos['cities']=Cities::all();
-        return view('customers/index',$datos);
+        $datacustomers['customers']=Customers::all();
+        return view('customers/index',$datos,$datacustomers);
 //        return view('customers.index');
     }
 
@@ -27,8 +28,7 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        $cities = Cities::all();
-        return view('customers.index', compact('cities'));
+        
     }
 
     /**
@@ -62,9 +62,11 @@ class CustomersController extends Controller
      * @param  \App\Models\customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function edit(customers $customers)
+    public function edit($id)
     {
-        //
+        
+        $customer=Customers::findOrFail($id);
+        return view('customers.edit', compact('customer'));
     }
 
     /**
@@ -74,9 +76,14 @@ class CustomersController extends Controller
      * @param  \App\Models\customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, customers $customers)
+    public function update(Request $request, $id)
     {
-        //
+        $datacustomers  = request()->except(['_token','_method']);
+        Customers::where('id','=',$id)->update($datacustomers);
+        return redirect('customers');
+        /*$customer=Customers::findOrFail($id);
+        return view('customers.edit', compact('customer'));
+        */
     }
 
     /**
@@ -85,8 +92,9 @@ class CustomersController extends Controller
      * @param  \App\Models\customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(customers $customers)
+    public function destroy($id)
     {
-        //
+        Customers::destroy($id);
+        return redirect('customers');
     }
 }

@@ -28,8 +28,6 @@
  <button type="submit" class="btn btn-primary mb-3">Save</button>
 </div>
 </form>
-
-<br>
 <br>
 <!--Table data-->
 
@@ -39,23 +37,35 @@
         <table class="table table-striped col-md-6" id="tblcities">
     <thead>
         <tr>
-            <th>ID Name</th>
-            <th>City Name</th>
+            <th>id</th>
+            <th>Id Number</th>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>City</th>
             <th>Acciones</th>
+
         </tr>
     </thead>
     <tbody>
-        @foreach($cities as $city)
+        @foreach($customers as $customer)
         <tr>
-            <td>{{$city->id}}</td>
-            <td>{{$city->city_name}}</td>
+            <td>{{$customer->id}}</td>
+            <td>{{$customer->customer_id_number}}</td>
+            <td>{{$customer->customer_name}}</td>
+            <td>{{$customer->customer_birth_date}}</td>
+            <td>{{$customer->customer_address}}</td>
+            <td>{{$customer->customer_phone}}</td>
+            <td>{{$customer->city_id}}</td>
+         
             <td>
                 
-            <a href="{{url('/cities/'.$city->id.'/edit')}}">
+            <a href="{{url('/customers/'.$customer->id.'/edit')}}">
                 <i class="fa-solid fa-pen-to-square text-primary"></i>
                 </a> 
                 
-                <form method="post" action="{{url('/cities/'.$city->id)}}">
+                <form method="post" action="{{url('/customers/'.$customer->id)}}">
                 {{csrf_field()}} 
                 {{ method_field('DELETE')}}
                    <button class="fa-solid fa-trash text-danger" onclick="return confirm('Are you sure');"></button>
