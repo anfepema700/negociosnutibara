@@ -14,7 +14,8 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        //
+        $datos['cities']=Cities::all();
+        return view('cities/index',$datos);
     }
 
     /**
@@ -24,7 +25,8 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        //
+        return view('cities/create');
+
     }
 
     /**
@@ -35,7 +37,10 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datacities  = request()->except('_token');
+        Cities::insert($datacities);
+        //return response()->json($datacities);
+        return redirect('cities');
     }
 
     /**
@@ -55,9 +60,10 @@ class CitiesController extends Controller
      * @param  \App\Models\Cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cities $cities)
+    public function edit($id)
     {
-        //
+        $cities=Cities::findOrFail($id);
+        return view('cities.edit', compact('cities'));
     }
 
     /**
@@ -67,9 +73,13 @@ class CitiesController extends Controller
      * @param  \App\Models\Cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cities $cities)
+    public function update(Request $request, $city_id_id)
     {
-        //
+        $datacities  = request()->except(['_token','_method']);
+        Cities::where('city_id_id', '=',$city_id_id);
+
+        $cities=Cities::findOrFail($city_id_id);
+        return view('cities.edit', compact('cities'));
     }
 
     /**
@@ -78,8 +88,10 @@ class CitiesController extends Controller
      * @param  \App\Models\Cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cities $cities)
+    public function destroy($city_id_id)
     {
-        //
+        
+        Cities::destroy($city_id_id);
+        return redirect('cities');
     }
 }

@@ -22,7 +22,6 @@ return new class extends Migration
             $table->foreign('order_id')->references('order_id')->on('orders')->onDelete("cascade");
             $table->foreign('product_id')->references('product_id')->on('products')->onDelete("cascade");
         });
-
     }
 
     /**
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_details');
+        //
     }
 };

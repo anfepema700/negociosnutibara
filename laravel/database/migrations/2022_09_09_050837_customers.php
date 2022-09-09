@@ -15,17 +15,16 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->bigIncrements('customer_id');
-            $table->char('customer_id_number',50)->nullable(false);
-            $table->char('customer_name',50)->nullable(false);
-            $table->date('customer_birth_date')->nullable(false);
-            $table->char('customer_address',100)->nullable(false);
-            $table->char('customer_phone',10)->nullable(false);
+	    $table->bigIncrements('customer_id');
+            $table->char('customer_id_number',50);
+            $table->char('customer_name',50);
+            $table->date('customer_birth_date');
+            $table->char('customer_address',100);
+            $table->char('customer_phone',10);
             $table->bigInteger('city_id')->unsigned();            
             $table->timestamps();
             $table->foreign('city_id')->references('city_id_id')->on('cities')->onDelete("cascade");
         });
-
 
     }
 
@@ -36,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        //
     }
 };

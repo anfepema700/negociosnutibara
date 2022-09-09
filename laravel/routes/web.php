@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CitiesController;
+use App\Http\Controllers\CustomersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('cities',CitiesController::class);
+Route::resource('customers',CustomersController::class);
+
+
+/*
+Route::get('/cities', function () {
+    return view('cities.index');
+});
+
+Route::get('cities/create',[EmpleadoController::class,'create']);
+*/
+
+/*acces to route by classes*/
+
+
+
+
