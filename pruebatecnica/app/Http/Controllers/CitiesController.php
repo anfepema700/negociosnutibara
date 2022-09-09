@@ -14,7 +14,7 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        //
+        return view('cities.index');
     }
 
     /**
