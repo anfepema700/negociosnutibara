@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\OrderdetailsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +23,6 @@ Route::get('/', function () {
 
 Route::resource('cities',CitiesController::class);
 Route::resource('customers',CustomersController::class);
+Route::resource('orders',OrdersController::class);
+Route::resource('products',ProductsController::class);
+Route::resource('orderdetails',OrderdetailsController::class);

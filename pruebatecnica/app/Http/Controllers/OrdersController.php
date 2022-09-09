@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\orders;
+use App\Models\customers;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
@@ -14,7 +15,10 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        //
+        $datos['orders']=Orders::all();
+        $datacustomers['customers']=Customers::all();
+        return view('orders.index',$datos,$datacustomers);
+        //return view('orders.index');
     }
 
     /**
@@ -24,7 +28,7 @@ class OrdersController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +39,10 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataorders  = request()->except('_token');
+        Orders::insert($dataorders);
+        //return response()->json($datacustomers);
+        return redirect('orders');
     }
 
     /**
@@ -55,9 +62,10 @@ class OrdersController extends Controller
      * @param  \App\Models\orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function edit(orders $orders)
+    public function edit($id)
     {
-        //
+        $order=Orders::findOrFail($id);
+        return view('orders.edit', compact('order'));
     }
 
     /**
@@ -67,10 +75,15 @@ class OrdersController extends Controller
      * @param  \App\Models\orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, orders $orders)
+    public function update(Request $request, $id)
     {
-        //
+        $dataorders  = request()->except(['_token','_method']);
+        Orders::where('id','=',$id)->update($dataorders);
+        return redirect('orders');
     }
+
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -78,8 +91,9 @@ class OrdersController extends Controller
      * @param  \App\Models\orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function destroy(orders $orders)
+    public function destroy($id)
     {
-        //
+        Orders::destroy($id);
+        return redirect('orders');
     }
 }
