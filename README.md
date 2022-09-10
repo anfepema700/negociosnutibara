@@ -45,6 +45,7 @@ Este proyecto fue desarrollado usando las siguientes tecnologías:
 - librerias: Jquery, boostrap 5, datatables, font awesome
 
 **esquema de la base de datos**
+![relaciónbasededatos](https://user-images.githubusercontent.com/49293767/189461011-bc3ce588-0ee0-449a-8cbe-be2e2fe16c38.png)
 
 **importa la base de datos**
 
@@ -109,6 +110,7 @@ This project was developed using the following technologies:
 - libraries: Jquery, boostrap 5, datatables, font awesome
 
 **Database schema**
+![relaciónbasededatos](https://user-images.githubusercontent.com/49293767/189461022-a2f50214-a3da-4144-8acc-97b8752586a8.png)
 
 **Import database**
 
