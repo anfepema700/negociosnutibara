@@ -46,7 +46,9 @@ Este proyecto fue desarrollado usando las siguientes tecnologías:
 
 **esquema de la base de datos**
 
+**importa la base de datos**
 
+Descarga base de datos si la migración falla: https://github.com/anfepema700/negociosnutibara/blob/main/bdpruebatecnica.sql
 
 **Funciones:** 
 
@@ -108,7 +110,9 @@ This project was developed using the following technologies:
 
 **Database schema**
 
+**Import database**
 
+download database and import into server xamp if migrates not execute: https://github.com/anfepema700/negociosnutibara/blob/main/bdpruebatecnica.sql
 
 **Features:**
 
